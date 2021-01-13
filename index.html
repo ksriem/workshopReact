@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React 101 By Devahoy</title>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="myApp"></div>
+
+  <script type="text/babel">
+
+    // 1. Class Component
+    class MyCard extends React.Component {
+      render() {
+        return (
+          <div className="card">
+            <div className="card-title">Title</div>
+            <div className="card-content">Content</div>
+
+            <Ahoy message="This is react 101 tutorial on Youtube" />
+            <Ahoy2 title="This is my custom title" />
+          </div>
+        )
+      }
+    }
+
+    // 2. Function Component
+    const Ahoy = function (props) {
+      const message = props.message;
+
+      return (
+        <React.Fragment>
+          <h1>Ahoy!!!!!!</h1>
+          <p>{message}</p>
+        </React.Fragment>
+      )
+    }
+
+    // 3. Arrow function component
+    const Ahoy2 = ({ title = 'This is default title' }) => <h1>{title}</h1>
+
+    const myApp = document.getElementById('myApp');
+
+    ReactDOM.render(<MyCard />, myApp)
+  </script>
+</body>
+
+</html>
